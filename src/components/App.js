@@ -1,6 +1,8 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import github from './API/github';
+import Card from './Card';
+import './App.css';
 
 
 
@@ -16,8 +18,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <SearchBar onSubmit={this.onSearchSubmit}/>
+        <div className="card-container">
+          <Card data={this.state.data}/>
+        </div>       
       </div>
     )
   }
