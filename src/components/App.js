@@ -8,21 +8,29 @@ import './App.css';
 
 class App extends React.Component {
 
-  state = { data: []};
+  state = { card: ''};
 
   onSearchSubmit =  async term => {
     const response = await github.get(`/${term}`);
-      this.setState({ data: response.data});              
+      
+      this.setState({ card: response.data});              
   }
 
+  renderContent() {  
+    if (Object.keys(this.state.card).length > 0) {
+      return (
+      <div className="card-container">
+        <Card card={this.state.card}/>
+      </div>
+      )
+    }
+  }
 
-  render() {
+  render() {   
     return (
       <div className="container">
         <SearchBar onSubmit={this.onSearchSubmit}/>
-        <div className="card-container">
-          <Card data={this.state.data}/>
-        </div>       
+        {this.renderContent()}
       </div>
     )
   }

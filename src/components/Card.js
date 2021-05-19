@@ -4,24 +4,24 @@ const Card = (props) => {
     return (
         <div className="ui centered card">
             <div className="image">
-                <img src={props.data.avatar_url} alt="the github users avatar" />
+                <img src={props.card.avatar_url} alt="the github users avatar" />
             </div>
             <div className="content">
-                <a href={props.data.html_url} className="header">{props.data.name}</a>
+                <a href={props.card.html_url} className="header">{props.card.name}</a>
                 <div className="meta">
-                    <span className="date">Joined in {new Date(props.data.created_at).getFullYear()}</span>
+                    <span className="date">Joined in {new Date(props.card.created_at).getFullYear()}</span>
                 </div>
                 <div className="description">
-                    {props.data.bio}
+                    {props.card.bio}
                 </div>
             </div>
             <div className="extra content">
                 <span className="right floated">
                     <i class="code branch icon"></i>
-                    {props.data.public_repos} Repositories
+                    {props.card.public_repos} Repositories
                 </span>
                 <i class="users icon"></i>
-                {props.data.followers} Followers                   
+                {props.card.followers} Followers                   
             </div>
         </div>
     );
